@@ -8,7 +8,6 @@ backend/dist
 .env.local
 /backend/.env.example
 /frontend/.env.example
-/database
 /scripts
 /stop.txt
 /backend/backups
