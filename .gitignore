@@ -1,0 +1,14 @@
+node_modules
+acpt
+.next
+.ds_store
+/src/generated/prisma
+backend/dist
+.env
+.env.local
+/backend/.env.example
+/frontend/.env.example
+/database
+/scripts
+/stop.txt
+/backend/backups

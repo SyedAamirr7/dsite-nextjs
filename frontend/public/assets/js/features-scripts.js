@@ -1,0 +1,1 @@
+const contactPara=document.querySelectorAll(".contacts-section .contacts-content .contacts-text p");contactPara.forEach(n=>{let t=["card","contact_info"];n.innerHTML.includes("<br>")&&(n.innerHTML=n.innerHTML.replace("<br>","")),n.innerHTML.trim().length<=0||"&nbsp;"==n.innerHTML.trim()||"<br>&nbsp;"==n.innerHTML.trim()?n.remove():n.classList.add(...t)});

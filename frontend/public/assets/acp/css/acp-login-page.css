@@ -1,0 +1,423 @@
+/* Overrides and extras for ACP login (Next.js). Use with login_style.css. */
+
+/* Login page always LTR: icons left, text left-to-right, correct alignment for email/password/errors */
+#login {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+#login .login-form,
+#login .login-form .form-control,
+#login .login-form .alert {
+  text-align: left !important;
+}
+
+/* Login page always uses light theme - override any dark mode styles */
+body.dark #login,
+body.dark #login .hero-section,
+body.dark #login .login-form {
+  background: inherit !important;
+}
+
+body.dark #login .login-form {
+  background: #fff !important;
+}
+
+body.dark #login .login-form .text-header .title {
+  color: #414141 !important;
+}
+
+body.dark #login .login-form .go-to-reset,
+body.dark #login .login-form .back-to-login {
+  color: #3459a5 !important;
+}
+
+/* Minimal layout to match login.php structure (no Bootstrap) */
+#login .login-form .form-group.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+#login .login-form .form-group {
+  position: relative;
+}
+
+#login .login-form .form-group.row .col-lg-12 {
+  position: relative;
+  width: 100%;
+  min-height: 55px;
+}
+
+#login .login-form .form-group.row.justify-content-center {
+  justify-content: center;
+}
+
+/* Login button row: same width as form, centered */
+#login .login-form .form-group.row.justify-content-center {
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#login .login-form .form-group.row.justify-content-center .col-lg-9 {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#login .login-form .btn.btn-primary {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Constrain form width so inputs aren’t overly wide (match left form) */
+#login .login-form form {
+  max-width: 480px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+#login .login-form .forget-line,
+#login .login-form .go-back-wrap {
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Login page responsive */
+@media screen and (max-width: 600px) {
+  #login .hero-section {
+    padding: 1.5rem 0.75rem;
+    min-height: 100%;
+  }
+  #login .login-form {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 2rem 1rem !important;
+    margin: 0;
+    border-radius: 12px;
+    box-sizing: border-box;
+  }
+  #login .login-form form {
+    max-width: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  #login .login-form .form-control {
+    padding-left: 65px !important;
+  }
+  #login .login-form .text-header .title {
+    font-size: 1.5rem;
+  }
+  #login .login-form button.btn[data-login="submit"],
+  #login .login-form button.btn[data-login="reset-submit"] {
+    width: 100%;
+    max-width: 100%;
+  }
+  #login .login-form .logo img {
+    max-width: 100%;
+    height: auto;
+    max-height: 48px;
+  }
+}
+@media screen and (max-width: 400px) {
+  #login .login-form {
+    padding: 1.5rem 0.75rem !important;
+  }
+}
+
+/* Logo: fixed size, no stretch, centered */
+#login .login-form .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login .login-form .logo.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+#login .login-form .logo img {
+  height: 54px;
+  width: auto;
+  max-height: 54px;
+  object-fit: contain;
+  display: block;
+}
+
+#login .login-form .text-header.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+/* Login error alert – red danger style, always LTR for "Email and password are required" etc. */
+/* Override dark mode - login alerts always use light theme */
+#login .login-form .alert.alert-danger,
+body.dark #login .login-form .alert.alert-danger,
+[dir="rtl"] #login .login-form .alert.alert-danger {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  background-color: #f8d7da !important;
+  color: #721c24 !important;
+  border: 1px solid #f5c6cb !important;
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+/* Login form only: move "dsite login" title up, add space below for fields */
+#login .login-form form[data-login="form"] .text-header.mb-4 {
+  margin-top: -1rem;
+  margin-bottom: 4rem;
+}
+
+/* Reset form only: move "Reset website" title up, add space below for fields */
+#login .login-form form[data-login="reset-form"] .text-header.mb-4 {
+  margin-top: -2rem;
+  margin-bottom: 4rem;
+}
+
+#login .login-form .mt-5 {
+  margin-top: 2rem;
+}
+
+#login .login-form .mt-4 {
+  margin-top: 1.5rem;
+}
+
+/* Fix background image path for Next.js (login_style uses ../img/ which resolves under /assets/acp/) */
+/* Override dark mode - login hero always uses blue gradient background */
+#login .hero-section,
+body.dark #login .hero-section {
+  background: linear-gradient(0deg, #3459a5f2, #3459a5f2) 0 0/cover no-repeat,
+    url(/assets/img/home-bg.webp) 0 0/cover no-repeat !important;
+}
+
+/* Inputs: visible border, placeholder, padding (icon space on left; LTR always) */
+/* Override dark mode styles - login page always uses light theme */
+#login .login-form .form-control,
+body.dark #login .login-form .form-control,
+[dir="rtl"] #login .login-form .form-control {
+  box-sizing: border-box;
+  border: 1px solid #bebebe !important;
+  border-radius: 30px;
+  color: #333 !important;
+  background: #fff !important;
+  height: 55px;
+  padding: 0 2rem !important;
+  padding-left: 70px !important;
+  padding-right: 2rem !important;
+  width: 100%;
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+#login .login-form .form-control::placeholder,
+body.dark #login .login-form .form-control::placeholder {
+  color: #767676 !important;
+}
+
+#login .login-form .form-control:focus,
+body.dark #login .login-form .form-control:focus {
+  border-color: #3459a5 !important;
+  outline: none;
+  background: #fff !important;
+  color: #333 !important;
+}
+
+/* Icon area: left side with small inset so icons sit a little inside (mail + lock) */
+#login .login-form .input-with-icon .icon,
+#login .login-form .form-group .icon,
+[dir="rtl"] #login .login-form .input-with-icon .icon,
+[dir="rtl"] #login .login-form .form-group .icon {
+  position: absolute !important;
+  left: 24px !important;
+  right: auto !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 46px !important;
+  height: 55px !important;
+  min-height: 55px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  pointer-events: none;
+  z-index: 2;
+}
+
+#login .login-form .form-group .icon img,
+#login .login-form .input-with-icon .icon img {
+  width: auto !important;
+  height: 22px !important;
+  max-height: 22px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* Input wrapper: exact height, always LTR so icon stays left */
+#login .login-form .input-with-icon {
+  position: relative;
+  height: 55px;
+  min-height: 55px;
+  direction: ltr !important;
+}
+
+/* Card shadow (ensure it shows) */
+#login .login-form {
+  min-height: 587.4px;
+  height: auto;
+  box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+}
+
+/* Reset password view: smaller height */
+#login .login-form.login-form-reset {
+  width: 600px;
+  min-height: 484.4px;
+  height: auto;
+}
+
+/* Primary button: solid blue, full width, pill shape (match left form) */
+/* Override dark mode - login buttons always use light theme */
+#login .login-form .btn.btn-primary,
+body.dark #login .login-form .btn.btn-primary {
+  background-color: #3459a5 !important;
+  border: none !important;
+  border-radius: 30px;
+  color: #fff !important;
+  width: 100%;
+  font-weight: 700;
+}
+
+#login .login-form .btn.btn-primary:hover,
+body.dark #login .login-form .btn.btn-primary:hover {
+  background-color: #2d4d8f !important;
+  color: #fff !important;
+}
+
+/* Login submit button: fixed width, centered */
+#login .login-form button.btn[data-login="submit"] {
+  width: 346.5px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/* Reset form submit button: fixed width, centered */
+#login .login-form button.btn[data-login="reset-submit"] {
+  width: 346.5px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/* "Reset Password" / "Go Back" – clear button style (blue link look) */
+#login .login-form .go-to-reset,
+#login .login-form .back-to-login {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin-left: 2px;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 700;
+  color: #3459a5;
+  cursor: pointer;
+}
+
+#login .login-form .go-to-reset:hover,
+#login .login-form .back-to-login:hover {
+  color: #2d4d8f;
+}
+
+#login .login-form .go-to-reset:focus,
+#login .login-form .back-to-login:focus {
+  outline: none;
+}
+
+/* Forget / Go Back line (match PHP .mt-4 text-center, font-size 16px) */
+#login .login-form .forget-line {
+  margin-top: 2.25rem;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+#login .login-form .forget-line .text-secondary {
+  color: #707070;
+  font-weight: 400;
+}
+
+#login .login-form .forget-line .go-to-reset,
+#login .login-form .forget-line .back-to-login {
+  font-weight: 700;
+}
+
+/* Screen reader only */
+#login .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Password field: right padding so text doesn’t sit under eye icon */
+#login .login-form .form-group.form-group-password .form-control,
+[dir="rtl"] #login .login-form .form-group.form-group-password .form-control {
+  padding-right: 56px !important;
+  padding-left: 70px !important;
+}
+
+/* Eye icon: right side with small inset so it sits a little inside */
+#login .login-form .form-group .eye_password,
+[dir="rtl"] #login .login-form .form-group .eye_password {
+  position: absolute !important;
+  right: 28px !important;
+  left: auto !important;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #767676;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+#login .login-form .form-group .eye_password:hover {
+  color: #555;
+}
+
+#login .login-form .form-group .eye_password svg {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  max-width: 20px;
+  max-height: 20px;
+  flex-shrink: 0;
+  display: block;
+}

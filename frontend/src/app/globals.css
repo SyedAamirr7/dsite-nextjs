@@ -1,0 +1,318 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-din-regular);
+  --font-heading: var(--font-din-bold);
+}
+
+html,
+body {
+  opacity: 1;
+}
+
+body {
+  background: #f5f5f5;
+  color: var(--foreground);
+  font-family: var(--font-din-regular), sans-serif;
+}
+
+/* On reload/full load: hide nav, sidebar and main content until page is ready – no unstyled flash or blink */
+html.page-loading #wrapper,
+html.page-loading #sidebar-wrapper,
+html.page-loading .main-navbar,
+html.page-loading #page-content-wrapper {
+  visibility: hidden !important;
+}
+
+/* Prevent faded look: main dashboard area always fully visible when not loading */
+#wrapper,
+#page-content-wrapper,
+.page-content-wrapper {
+  opacity: 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-din-bold), sans-serif;
+}
+
+/* RTL: layout respects dir="rtl" via logical properties where needed */
+[dir="rtl"] .main-navbar .action {
+  margin-inline-start: auto;
+  margin-inline-end: 0;
+}
+
+[dir="rtl"] .main-navbar .page-title {
+  text-align: start;
+}
+
+[dir="rtl"] .main-navbar .text-left {
+  text-align: start;
+}
+
+[dir="rtl"] .dropdown-menu-left {
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+}
+
+/* User account dropdown: always LTR, left-aligned */
+.user-account-menu,
+.user-account-menu .dropdown-item {
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+[dir="rtl"] .main-navbar .ml-3 {
+  margin-inline-start: 0.75rem;
+  margin-inline-end: 0;
+}
+
+/* RTL Sidebar: icon on the right, right-aligned, inline with text */
+[dir="rtl"] .sidebar-nav .nav-link,
+[dir="rtl"] .sidebar-nav li a {
+  display: flex !important;
+  align-items: center !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  text-align: start !important;
+  flex-wrap: nowrap !important;
+  gap: 0.5rem !important;
+}
+
+[dir="rtl"] .sidebar-nav li a .icon,
+[dir="rtl"] .sidebar-nav li a .icon.ml-2,
+[dir="rtl"] .sidebar-nav li a .icon.ml-3 {
+  flex-shrink: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-inline-start: 0 !important;
+  margin-inline-end: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: auto !important;
+  min-width: 1.5rem !important;
+  line-height: 1 !important;
+}
+
+[dir="rtl"] .sidebar-nav li a .icon svg {
+  display: block !important;
+  vertical-align: middle !important;
+}
+
+/* Domain page: copy button (from ACP) */
+.copy-button .centralize {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 10px;
+}
+
+.copy-button .domain-copy-btn {
+  position: relative;
+  width: 135px;
+  height: 45px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  transition: background-color 0.5s;
+  cursor: pointer;
+}
+
+.copy-button .domain-copy-btn span:first-of-type {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #3459a5;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.copy-button .domain-copy-btn span:first-of-type svg {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.copy-button .domain-copy-btn span:last-of-type {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: #fff;
+  opacity: 0;
+  transform: translate(-50%, 100%);
+  transition: opacity 0.5s 0.3s, transform 0.5s 0.3s;
+}
+
+.copy-button .domain-copy-btn.active {
+  background-color: #3459a5;
+}
+
+.copy-button .domain-copy-btn.active span:first-of-type {
+  color: #b5ccf3;
+  opacity: 0;
+  transform: translate(-50%, -150%);
+}
+
+.copy-button .domain-copy-btn.active span:last-of-type {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 575px) {
+  .copy-button {
+    width: 100%;
+  }
+  .copy-button .centralize {
+    margin: 16px auto;
+    width: 100%;
+  }
+}
+
+/* Profile page — match design: centered avatar, light grey labels, blue update button */
+.profile-page-form .profile-section-label,
+.profile-page-form .profile-field-label {
+  color: #6c757d;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.profile-page-form .profile-picture-section .form-label {
+  margin-bottom: 0.25rem;
+}
+
+.profile-avatar-wrap {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.profile-avatar {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border: 1px solid #dee2e6;
+}
+
+.profile-avatar-placeholder {
+  object-fit: contain;
+  background-color: #f8f9fa;
+}
+
+
+.profile-page-form .form-control-profile {
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  color: #212529;
+}
+
+.profile-page-form .form-control-profile::placeholder {
+  color: #6c757d;
+}
+
+.profile-page-form .form-group {
+  margin-bottom: 1.25rem;
+}
+
+.profile-page-form .profile-update-btn {
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+}
+
+/* Site information: allow bootstrap-select dropdown to show (override .page-content-wrapper .card overflow) */
+#site-info-form .tab-content,
+#site-info-form .tab-pane,
+#site-info-form .card.mt-4,
+#site-info-form .card.mt-4 .card-body,
+#site-info-form .form-group .bootstrap-select {
+  overflow: visible !important;
+}
+#site-info-form .card.mt-4 .form-group {
+  overflow: visible !important;
+}
+
+/* Social media form: ensure Font Awesome icons show and are centered in the icon box */
+.social-media-form .form-group .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.social-media-form .form-group .icon i {
+  font-size: 1.125rem;
+  display: inline-block;
+  line-height: 1;
+}
+.social-media-form .form-group .icon .tiktok-icon-svg {
+  flex-shrink: 0;
+  color: inherit;
+}
+
+/* Country dropdown: LTR for English tab only */
+#lang_en .country-select-wrap .dropdown-menu,
+#lang_en .country-select-wrap .dropdown-menu .dropdown-menu.inner,
+#lang_en .country-select-wrap .dropdown-menu ul,
+#lang_en .country-select-wrap .btn.dropdown-toggle,
+#lang_en .country-select-wrap .btn.dropdown-toggle .filter-option-inner-inner {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Country dropdown: RTL for Arabic tab (list and button) */
+#lang_ar .country-select-wrap .dropdown-menu,
+#lang_ar .country-select-wrap .dropdown-menu .dropdown-menu.inner,
+#lang_ar .country-select-wrap .dropdown-menu ul {
+  direction: rtl;
+  text-align: right;
+}
+#lang_ar .country-select-wrap .btn.dropdown-toggle,
+#lang_ar .country-select-wrap .btn.dropdown-toggle .filter-option-inner-inner {
+  direction: rtl;
+  text-align: right;
+}
+#lang_ar .country-select-wrap .bs-searchbox input {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Website Language dropdown: LTR for English tab only */
+#lang_en .website-language-select-wrap .dropdown-menu,
+#lang_en .website-language-select-wrap .dropdown-menu .dropdown-menu.inner,
+#lang_en .website-language-select-wrap .dropdown-menu ul,
+#lang_en .website-language-select-wrap .btn.dropdown-toggle,
+#lang_en .website-language-select-wrap .btn.dropdown-toggle .filter-option-inner-inner {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Website Language dropdown: RTL for Arabic tab (list and button) */
+#lang_ar .website-language-select-wrap .dropdown-menu,
+#lang_ar .website-language-select-wrap .dropdown-menu .dropdown-menu.inner,
+#lang_ar .website-language-select-wrap .dropdown-menu ul {
+  direction: rtl;
+  text-align: right;
+}
+#lang_ar .website-language-select-wrap .btn.dropdown-toggle,
+#lang_ar .website-language-select-wrap .btn.dropdown-toggle .filter-option-inner-inner {
+  direction: rtl;
+  text-align: right;
+}
+#lang_ar .website-language-select-wrap .bs-searchbox input {
+  direction: rtl;
+  text-align: right;
+}

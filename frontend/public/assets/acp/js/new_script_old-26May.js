@@ -1,0 +1,1 @@
+const eyeDropperIcons=document.querySelectorAll(".colors-logos__container .colors__container .colorInputParent .eyedropper__icon");eyeDropperIcons.forEach(e=>{e.addEventListener("click",async()=>{let o=e.parentElement.querySelector('input[type="color"]'),{sRGBHex:r}=await (new EyeDropper).open();o.value=r})});

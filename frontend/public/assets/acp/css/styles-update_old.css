@@ -1,0 +1,43 @@
+/* Start update osama (26-10-2023) */
+.website-loge__change {
+  gap: 1rem;
+}
+/* End update osama (26-10-2023) */
+/* Start update osama (29-10-2023) */
+form.bs-stepper .bs-stepper-header .step-trigger {
+  white-space: initial !important;
+}
+.colors-logos__container {
+  margin-bottom: 100px;
+}
+.colors-logos__container
+  .colors__container
+  .form-group
+  label.littleThanDarkText {
+  max-width: 150px;
+  width: 100%;
+}
+.colors-logos__container .colors__container .colorInputParent {
+  width: 140px;
+  height: 42px;
+  border: 1px solid #ddd !important;
+  border-radius: 10px !important;
+  -webkit-border-radius: 10px !important;
+  -moz-border-radius: 10px !important;
+  -ms-border-radius: 10px !important;
+  -o-border-radius: 10px !important;
+  overflow: hidden;
+}
+.colors-logos__container .colors__container .colorInputParent .color-input {
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 992px) {
+  .colors-logos__container .colors__container .form-group {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 0 !important;
+    gap: 16px;
+  }
+}
+/* End update osama (29-10-2023) */

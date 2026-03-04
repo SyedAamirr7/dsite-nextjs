@@ -1,0 +1,1048 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model about {
+  ID                    Int      @id @default(autoincrement())
+  Website_ID            Int
+  About_Title_ar        String?  @db.VarChar(255)
+  About_Title_en        String?  @db.VarChar(255)
+  About_Subtitle_ar     String?  @db.VarChar(255)
+  About_Subtitle_en     String?  @db.VarChar(255)
+  About_Summary_ar      String?  @db.VarChar(555)
+  About_Summary_en      String?  @db.VarChar(555)
+  About_Detail_ar       String
+  About_Detail_en       String
+  About_Title1_ar       String?  @db.VarChar(255)
+  About_Title2_ar       String?  @db.VarChar(255)
+  About_Title3_ar       String?  @db.VarChar(255)
+  About_Title4_ar       String?  @db.VarChar(255)
+  About_Title5_ar       String?  @db.VarChar(255)
+  About_Title6_ar       String?  @db.VarChar(255)
+  About_Title7_ar       String?  @db.VarChar(255)
+  About_Title8_ar       String?  @db.VarChar(255)
+  About_Title1_en       String?  @db.VarChar(255)
+  About_Title2_en       String?  @db.VarChar(255)
+  About_Title3_en       String?  @db.VarChar(255)
+  About_Title4_en       String?  @db.VarChar(255)
+  About_Title5_en       String?  @db.VarChar(255)
+  About_Title6_en       String?  @db.VarChar(255)
+  About_Title7_en       String?  @db.VarChar(255)
+  About_Title8_en       String?  @db.VarChar(255)
+  About_Title1_Value_ar String?  @db.VarChar(155)
+  About_Title2_Value_ar String?  @db.VarChar(155)
+  About_Title3_Value_ar String?  @db.VarChar(155)
+  About_Title4_Value_ar String?  @db.VarChar(155)
+  About_Title5_Value_ar String?  @db.VarChar(155)
+  About_Title6_Value_ar String?  @db.VarChar(155)
+  About_Title7_Value_ar String?  @db.VarChar(155)
+  About_Title8_Value_ar String?  @db.VarChar(155)
+  About_Title1_Value_en String?  @db.VarChar(155)
+  About_Title2_Value_en String?  @db.VarChar(155)
+  About_Title3_Value_en String?  @db.VarChar(155)
+  About_Title4_Value_en String?  @db.VarChar(155)
+  About_Title5_Value_en String?  @db.VarChar(155)
+  About_Title6_Value_en String?  @db.VarChar(155)
+  About_Title7_Value_en String?  @db.VarChar(155)
+  About_Title8_Value_en String?  @db.VarChar(155)
+  About_Tags            String?  @db.VarChar(300)
+  About_Image           String?  @db.VarChar(255)
+  Timestamp             DateTime @default(now()) @db.Timestamp(6)
+  About_ImgStatus       String   @default("logo") @db.VarChar(50)
+  Status                Int      @default(1) @db.SmallInt
+  About_Background      String?  @db.VarChar(255)
+}
+
+model acp_log_operations {
+  Log_ID          Int      @id @default(autoincrement())
+  Change_Row_ID   Int
+  User_ID         Int
+  IP_Address      String   @db.VarChar(50)
+  Action_Table    String   @db.VarChar(100)
+  Website_ID      Int
+  Content         String
+  Event_Performed String   @db.VarChar(20)
+  TimeStamp       DateTime @default(now()) @db.Timestamp(6)
+}
+
+model ads {
+  ID          Int       @id @default(autoincrement())
+  Website_ID  Int
+  Ad_Title_ar String    @db.VarChar(100)
+  Ad_Title_en String    @db.VarChar(100)
+  Status      Int       @db.SmallInt
+  Timestamp   DateTime  @default(now()) @db.Timestamp(6)
+  Deleted     Int       @default(0) @db.SmallInt
+  Deleted_At  DateTime? @db.Timestamp(6)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model ads_label_values {
+  ID            Int       @id @default(autoincrement())
+  AD_ID         Int
+  Label_Name_ar String    @db.VarChar(100)
+  Label_Name_en String    @db.VarChar(100)
+  Input_Type    String    @db.VarChar(20)
+  Sub_Values_ar String?   @db.VarChar(255)
+  Sub_Values_en String?   @db.VarChar(255)
+  Status        Int       @db.SmallInt
+  Order_No      Int       @default(0)
+  Timestamp     DateTime  @default(now()) @db.Timestamp(6)
+  Deleted       Int       @default(0) @db.SmallInt
+  Deleted_At    DateTime? @db.Timestamp(6)
+}
+
+model ads_orders {
+  ID               Int      @id @default(autoincrement())
+  Label_ID         Int
+  Ad_Label_Content String   @db.VarChar(255)
+  Form_ID          Int
+  Timestamp        DateTime @default(now()) @db.Timestamp(6)
+}
+
+model app {
+  ID              Int      @id @default(autoincrement())
+  Website_ID      Int
+  App_Subtitle_ar String   @db.VarChar(100)
+  App_Subtitle_en String   @db.VarChar(100)
+  App_Image       String   @db.VarChar(150)
+  App_Background  String?  @db.VarChar(300)
+  Timestamp       DateTime @default(now()) @db.Timestamp(6)
+  playstore_logo  String   @db.VarChar(100)
+  appstore_logo   String   @db.VarChar(100)
+  huawei_logo     String   @db.VarChar(100)
+  playstore_link  String?  @db.VarChar(300)
+  ios_link        String?  @db.VarChar(300)
+  appgallery_link String?  @db.VarChar(300)
+  Status          Int      @default(1) @db.SmallInt
+}
+
+model apps {
+  ID           Int       @id @default(autoincrement())
+  APP_Title_ar String    @db.VarChar(255)
+  APP_Title_en String?   @db.VarChar(255)
+  APP_Link     String?   @db.VarChar(255)
+  Apple_Link   String?   @db.VarChar(255)
+  status       Int       @default(1) @db.SmallInt
+  Timestamp    DateTime  @default(now()) @db.Timestamp(6)
+  Is_Deleted   Int       @default(0) @db.SmallInt
+  Deleted_At   DateTime? @db.Timestamp(6)
+}
+
+model banner {
+  ID                    Int     @id @default(autoincrement())
+  Website_ID            Int
+  Banner_Title_ar       String  @db.VarChar(100)
+  Banner_Title_en       String  @db.VarChar(100)
+  Banner_Sub_Title_en   String  @db.VarChar(255)
+  Banner_Sub_Title_ar   String  @db.VarChar(255)
+  Banner_Description_ar String?
+  Banner_Description_en String?
+  Banner_Image          String  @db.VarChar(255)
+  Banner_Background     String? @db.VarChar(155)
+  Status                Int     @default(1) @db.SmallInt
+}
+
+model branch {
+  ID               Int       @id @default(autoincrement())
+  Website_ID       Int
+  Branch_Title_ar  String?   @db.VarChar(100)
+  Branch_Title_en  String?   @db.VarChar(100)
+  Branch_Detail_ar String
+  Branch_Detail_en String
+  Branch_Image     String    @db.VarChar(155)
+  Branch_lat       Float?    @default(31.479464725425665)
+  Branch_lng       Float?    @default(34.446068999999966)
+  Order_No         Int
+  Timestamp        DateTime  @default(now()) @db.Timestamp(6)
+  Status           Int       @default(1) @db.SmallInt
+  Is_Deleted       Int       @default(0) @db.SmallInt
+  Deleted_At       DateTime? @db.Timestamp(6)
+}
+
+model career {
+  ID                 Int       @id @default(autoincrement())
+  Website_ID         Int
+  Job_Title_ar       String    @db.VarChar(255)
+  Job_Title_en       String?   @db.VarChar(255)
+  Job_Description_ar String?
+  Job_Description_en String?
+  Order_No           Int
+  Status             Int
+  Is_Deleted         Int       @default(0) @db.SmallInt
+  Deleted_At         DateTime? @db.Timestamp(6)
+  Timestamp          DateTime  @default(now()) @db.Timestamp(6)
+}
+
+model career_applicants {
+  ID          Int       @id @default(autoincrement())
+  Career_ID   Int
+  name        String    @db.VarChar(255)
+  email       String    @db.VarChar(255)
+  phone       String?   @db.VarChar(255)
+  nationality String?   @db.VarChar(155)
+  cv_file     String    @db.VarChar(255)
+  gender      String    @db.VarChar(10)
+  city        String    @db.VarChar(155)
+  DOB         DateTime? @db.Date
+  Order_No    Int
+  Timestamp   DateTime  @default(now()) @db.Timestamp(6)
+}
+
+model client {
+  ID              Int       @id @default(autoincrement())
+  Website_ID      Int
+  Client_Title_ar String?   @db.VarChar(100)
+  Client_Title_en String?   @db.VarChar(100)
+  Client_Image    String?   @db.VarChar(155)
+  Client_Link     String?   @db.VarChar(155)
+  Order_No        Int
+  Timestamp       DateTime  @default(now()) @db.Timestamp(6)
+  Status          Int       @default(1) @db.SmallInt
+  Is_Deleted      Int       @default(0) @db.SmallInt
+  Deleted_At      DateTime? @db.Timestamp(6)
+}
+
+model contact {
+  ID                 Int      @id @default(autoincrement())
+  Website_ID         Int
+  Contact_Title_ar   String?  @db.VarChar(255)
+  Contact_Title_en   String?  @db.VarChar(255)
+  Contact_Address_en String?  @db.VarChar(300)
+  Contact_Address_ar String?  @db.VarChar(300)
+  Contact_Tel        String?  @db.VarChar(155)
+  Contact_Fax        String?  @db.VarChar(155)
+  Contact_Email      String?  @db.VarChar(155)
+  Contact_Background String?  @db.VarChar(300)
+  Timstamp           DateTime @default(now()) @db.Timestamp(6)
+  Status             Int      @default(1) @db.SmallInt
+}
+
+model countries {
+  country_code          String @id @default("") @db.VarChar(2)
+  country_enName        String @default("") @db.VarChar(100)
+  country_arName        String @default("") @db.VarChar(100)
+  country_enNationality String @default("") @db.VarChar(100)
+  country_arNationality String @default("") @db.VarChar(100)
+}
+
+model customer {
+  Customer_ID        Int       @id @default(autoincrement())
+  Fullname           String    @db.VarChar(255)
+  Email              String    @db.VarChar(255)
+  Password           String?   @db.VarChar(255)
+  Phone              String?   @db.VarChar(15)
+  Address            String?   @db.VarChar(255)
+  Photo              String?   @db.VarChar(100)
+  Status             Int?      @default(1) @db.SmallInt
+  Reset_Token        String?   @db.VarChar(300)
+  Reset_Otp          Int?
+  Reset_Token_Expiry DateTime? @db.Timestamp(6)
+  Timestamp          DateTime  @default(now()) @db.Timestamp(6)
+}
+
+model footer {
+  ID               Int      @id @default(autoincrement())
+  Website_ID       Int
+  Footer_Copyright String   @db.VarChar(100)
+  Footer_Poweredby String   @db.VarChar(100)
+  Timestamp        DateTime @default(now()) @db.Timestamp(6)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model form_fields {
+  ID             Int       @id @default(autoincrement())
+  FormID         Int
+  label_name_ar  String    @db.VarChar(255)
+  label_name_en  String    @db.VarChar(255)
+  field_type     String    @db.VarChar(30)
+  options_ar     String?
+  options_en     String?
+  placeholder_ar String?   @db.VarChar(255)
+  placeholder_en String?   @db.VarChar(255)
+  required       Int       @default(0) @db.SmallInt
+  Order_No       Int
+  Status         Int       @default(1) @db.SmallInt
+  Timestamp      DateTime  @db.Timestamp(6)
+  Updated_At     DateTime? @db.Timestamp(6)
+  Is_Deleted     Int       @default(0) @db.SmallInt
+  Deleted_At     DateTime? @db.Timestamp(6)
+}
+
+model forms {
+  ID            Int       @id @default(autoincrement())
+  Website_ID    Int
+  Form_Title_ar String    @db.VarChar(255)
+  Form_Title_en String    @db.VarChar(255)
+  Status        Int       @default(1) @db.SmallInt
+  Timestamp     DateTime  @db.Timestamp(6)
+  Updated_At    DateTime? @db.Timestamp(6)
+  Is_Deleted    Int       @default(0) @db.SmallInt
+  Deleted_At    DateTime? @db.Timestamp(6)
+}
+
+model gallery {
+  ID               Int       @id @default(autoincrement())
+  Website_ID       Int
+  Gallery_Title_ar String?   @db.VarChar(100)
+  Gallery_Title_en String?   @db.VarChar(100)
+  Timestamp        DateTime  @default(now()) @db.Timestamp(6)
+  Gallery_Image    String    @db.VarChar(155)
+  Gallery_Link     String    @db.VarChar(155)
+  Order_No         Int
+  Status           Int       @default(1) @db.SmallInt
+  Is_Deleted       Int       @default(0) @db.SmallInt
+  Deleted_At       DateTime? @db.Timestamp(6)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model global_settings {
+  ID          Int      @id @default(autoincrement())
+  Setting_Key String?  @db.VarChar(50)
+  Value       String   @db.VarChar(255)
+  Timestamp   DateTime @default(now()) @db.Timestamp(6)
+}
+
+model localization {
+  ID          Int       @id @default(autoincrement())
+  Key         String    @db.VarChar(100)
+  String_en   String
+  String_ar   String
+  Category_ID Int
+  Created_at  DateTime? @default(now()) @db.Timestamp(6)
+}
+
+model logs_operations {
+  Log_ID          Int      @id @default(autoincrement())
+  Change_Row_ID   Int
+  User_ID         Int
+  IP_Address      String   @db.VarChar(50)
+  Action_Table    String   @db.VarChar(100)
+  Content         String
+  Event_Performed String   @db.VarChar(50)
+  TimeStamp       DateTime @default(now()) @db.Timestamp(6)
+}
+
+model nav {
+  ID           Int      @id @default(autoincrement())
+  Website_ID   Int
+  Nav_Title_ar String   @db.VarChar(100)
+  Nav_Title_en String   @db.VarChar(100)
+  Nav_Link     String   @db.VarChar(100)
+  Nav_Logo     String   @db.VarChar(100)
+  Timestamp    DateTime @default(now()) @db.Timestamp(6)
+}
+
+model news {
+  ID                  Int       @id @default(autoincrement())
+  Website_ID          Int
+  News_Title_ar       String?   @db.VarChar(100)
+  News_Title_en       String?   @db.VarChar(100)
+  News_Subtitle_ar    String?   @db.VarChar(255)
+  News_Subtitle_en    String?   @db.VarChar(255)
+  News_Description_ar String?   @db.VarChar(300)
+  News_Description_en String?   @db.VarChar(300)
+  News_Detail_ar      String
+  News_Detail_en      String
+  News_Date           DateTime? @db.Date
+  News_Author         String?   @db.VarChar(155)
+  News_Tags           String?   @db.VarChar(200)
+  News_Image          String    @db.VarChar(100)
+  Slug_ar             String?   @unique(map: "news_slug_ar") @db.VarChar(300)
+  Slug_en             String?   @unique(map: "news_slug_en") @db.VarChar(300)
+  Timestamp           DateTime  @default(now()) @db.Timestamp(6)
+  Status              Int       @default(1) @db.SmallInt
+  Order_No            Int
+  Is_Deleted          Int       @default(0) @db.SmallInt
+  Deleted_At          DateTime? @db.Timestamp(6)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model page_label_values {
+  ID            Int       @id @default(autoincrement())
+  PageID        Int
+  Label_Name_ar String    @db.VarChar(100)
+  Label_Name_en String    @db.VarChar(100)
+  Input_Type    String    @db.VarChar(20)
+  Sub_Values_ar String?   @db.VarChar(255)
+  Sub_Values_en String?   @db.VarChar(255)
+  Status        Int       @default(1) @db.SmallInt
+  Order_No      Int       @default(0)
+  Timestamp     DateTime  @default(now()) @db.Timestamp(6)
+  Deleted       Int       @default(0) @db.SmallInt
+  Deleted_At    DateTime? @db.Timestamp(6)
+}
+
+model page_links {
+  ID            Int       @id @default(autoincrement())
+  PageID        Int
+  link_name_ar  String    @db.VarChar(255)
+  link_name_en  String    @db.VarChar(255)
+  link_visitors Int
+  Status        Int       @default(1) @db.SmallInt
+  Timestamp     DateTime  @default(now()) @db.Timestamp(6)
+  is_Deleted    Int       @default(0) @db.SmallInt
+  Deleted_At    DateTime? @db.Timestamp(6)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model page_orders {
+  ID        Int      @id @default(autoincrement())
+  Page_ID   Int
+  Label_ID  Int
+  Content   String   @db.VarChar(255)
+  Form_ID   Int
+  Status    String   @default("New") @db.VarChar(20)
+  Timestamp DateTime @default(now()) @db.Timestamp(6)
+}
+
+model page_visitors {
+  ID             Int      @id @default(autoincrement())
+  Website_ID     Int
+  IP             String   @db.VarChar(100)
+  Browser        String   @db.VarChar(100)
+  BrowserVersion String   @db.VarChar(100)
+  Platform       String   @db.VarChar(100)
+  pageName       String   @db.VarChar(100)
+  pageURL        String   @db.VarChar(150)
+  Timestamp      DateTime @default(now()) @db.Timestamp(6)
+}
+
+model pages {
+  ID                  Int       @id @default(autoincrement())
+  Website_ID          Int
+  Page_Title_ar       String    @db.VarChar(100)
+  Page_Title_en       String    @db.VarChar(100)
+  Page_Description_ar String    @db.VarChar(255)
+  Page_Description_en String    @db.VarChar(255)
+  Page_Content_ar     String
+  Page_Content_en     String
+  Page_Summary_ar     String?   @db.VarChar(300)
+  Page_Summary_en     String?   @db.VarChar(300)
+  Page_Tags           String?   @db.VarChar(255)
+  Slug_ar             String?   @unique(map: "pages_slug_ar") @db.VarChar(300)
+  Slug_en             String?   @unique(map: "pages_slug_en") @db.VarChar(300)
+  Last_Updated        DateTime  @db.Timestamp(6)
+  Order_No            Int
+  Page_request        Int       @default(0) @db.SmallInt
+  FormID              Int?
+  Status              Int       @default(1) @db.SmallInt
+  Is_Deleted          Int       @default(0) @db.SmallInt
+  Deleted_At          DateTime? @db.Timestamp(6)
+  Page_Background     String?   @db.VarChar(255)
+  Timestamp           DateTime  @default(now()) @db.Timestamp(6)
+}
+
+model partner {
+  ID               Int       @id @default(autoincrement())
+  Website_ID       Int
+  Partner_Title_ar String?   @db.VarChar(100)
+  Partner_Title_en String?   @db.VarChar(100)
+  Partner_Image    String?   @db.VarChar(155)
+  Partner_Link     String?   @db.VarChar(155)
+  Order_No         Int
+  Timestamp        DateTime  @default(now()) @db.Timestamp(6)
+  Status           Int       @default(1) @db.SmallInt
+  Is_Deleted       Int       @default(0) @db.SmallInt
+  Deleted_At       DateTime? @db.Timestamp(6)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model plans {
+  ID                   Int       @id @default(autoincrement())
+  Website_ID           Int
+  Plans_Title_ar       String?   @db.VarChar(255)
+  Plans_Title_en       String?   @db.VarChar(255)
+  Plans_Description_ar String?   @db.VarChar(600)
+  Plans_Description_en String?   @db.VarChar(600)
+  Plans_duration       String    @db.VarChar(20)
+  Plans_Price          Float?    @default(0)
+  Plans_Picture        String    @db.VarChar(255)
+  Slug_ar              String?   @unique(map: "plans_slug_ar") @db.VarChar(300)
+  Slug_en              String?   @unique(map: "plans_slug_en") @db.VarChar(300)
+  Order_No             Int
+  Status               Int?      @default(1)
+  Is_Deleted           Int?      @default(0)
+  Deleted_At           Int?
+  Timestamp            DateTime? @default(now()) @db.Timestamp(6)
+}
+
+model plans_features {
+  F_ID      Int       @id @default(autoincrement())
+  Plan_ID   Int
+  F_TEXT_en String?   @db.VarChar(255)
+  F_TEXT_ar String?   @db.VarChar(255)
+  Timestamp DateTime? @default(now()) @db.Timestamp(6)
+}
+
+model portfolio {
+  ID                          Int       @id @default(autoincrement())
+  Website_ID                  Int
+  Portfolio_Title_ar          String?   @db.VarChar(155)
+  Portfolio_Title_en          String?   @db.VarChar(155)
+  Portfolio_Subtitle_ar       String    @db.VarChar(100)
+  Portfolio_Subtitle_en       String    @db.VarChar(100)
+  Portfolio_Jobdescription_ar String?   @db.VarChar(155)
+  Portfolio_Jobdescription_en String?   @db.VarChar(155)
+  Portfolio_Detail_ar         String?
+  Portfolio_Detail_en         String?
+  Portfolio_Image             String?   @db.VarChar(100)
+  Portfolio_Link              String?   @db.VarChar(100)
+  Timestamp                   DateTime  @default(now()) @db.Timestamp(6)
+  Status                      Int?      @default(1) @db.SmallInt
+  LinkType                    String    @default("description") @db.VarChar(50)
+  Link                        String?   @db.VarChar(300)
+  Slug_ar                     String?   @unique(map: "portfolio_slug_ar") @db.VarChar(300)
+  Slug_en                     String?   @unique(map: "portfolio_slug_en") @db.VarChar(300)
+  Order_No                    Int
+  Is_Deleted                  Int       @default(0) @db.SmallInt
+  Deleted_At                  DateTime? @db.Timestamp(6)
+}
+
+model product {
+  ID                     Int       @id @default(autoincrement())
+  Website_ID             Int
+  Product_Title_ar       String?   @db.VarChar(100)
+  Product_Title_en       String?   @db.VarChar(100)
+  Product_Subtitle_ar    String    @db.VarChar(100)
+  Product_Subtitle_en    String    @db.VarChar(100)
+  Product_Detail_ar      String
+  Product_Detail_en      String
+  Product_Description_ar String
+  Product_Description_en String
+  Product_Price          Int?
+  Product_Number         Int?
+  Product_Image          String    @db.VarChar(100)
+  video_url              String?   @db.VarChar(300)
+  CAT_ID                 Int       @default(0)
+  Brand_ID               Int       @default(0)
+  requests               Int       @default(0)
+  Order_No               Int
+  Timestamp              DateTime  @default(now()) @db.Timestamp(6)
+  Status                 Int?      @default(1) @db.SmallInt
+  FormID                 Int?
+  LinkType               String    @default("description") @db.VarChar(50)
+  Link                   String?   @db.VarChar(300)
+  Slug_ar                String?   @unique(map: "product_slug_ar") @db.VarChar(300)
+  Slug_en                String?   @unique(map: "product_slug_en") @db.VarChar(300)
+  Is_Deleted             Int       @default(0) @db.SmallInt
+  Deleted_At             DateTime? @db.Timestamp(6)
+}
+
+model product_brands {
+  ID                     Int       @id @default(autoincrement())
+  Website_ID             Int
+  Product_Brand_Title_ar String    @db.VarChar(255)
+  Product_Brand_Title_en String    @db.VarChar(255)
+  Product_Brand_Image    String    @db.VarChar(255)
+  Status                 Int       @default(1) @db.SmallInt
+  Timestamp              DateTime  @default(now()) @db.Timestamp(6)
+  Is_Deleted             Int       @default(0) @db.SmallInt
+  Deleted_At             DateTime? @db.Timestamp(6)
+}
+
+model product_categories {
+  ID                   Int       @id @default(autoincrement())
+  Website_ID           Int
+  Product_CAT_Title_ar String    @db.VarChar(255)
+  Product_CAT_Title_en String    @db.VarChar(255)
+  Status               Int       @default(1) @db.SmallInt
+  Timestamp            DateTime  @default(now()) @db.Timestamp(6)
+  Is_Deleted           Int       @default(0) @db.SmallInt
+  Deleted_At           DateTime? @db.Timestamp(6)
+}
+
+model product_features {
+  PF_ID      Int      @id @default(autoincrement())
+  PrPrice_ID Int
+  PF_TEXT_en String?  @db.VarChar(255)
+  PF_TEXT_ar String?  @db.VarChar(255)
+  Status     Int      @default(0) @db.SmallInt
+  Timestamp  DateTime @default(now()) @db.Timestamp(6)
+}
+
+model product_form_label_options {
+  ID                     Int      @id @default(autoincrement())
+  product_form_labels_id Int
+  option_value_en        String   @db.VarChar(100)
+  option_value_ar        String   @db.VarChar(100)
+  option_Status          Int      @default(1) @db.SmallInt
+  Timestamp              DateTime @default(now()) @db.Timestamp(6)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model product_form_labels {
+  ID             Int      @id @default(autoincrement())
+  Section_ID     Int
+  input_label_en String   @db.VarChar(255)
+  input_label_ar String   @db.VarChar(255)
+  placeholder_en String   @db.VarChar(255)
+  placeholder_ar String   @db.VarChar(255)
+  input_type     String   @default("text") @db.VarChar(30)
+  is_active      Int
+  required       Int
+  Order_No       Int
+  Timestamp      DateTime @default(now()) @db.Timestamp(6)
+}
+
+model product_images {
+  ID             Int      @id @default(autoincrement())
+  productID      Int
+  Image_title_en String   @db.VarChar(255)
+  Image_title_ar String   @db.VarChar(255)
+  Image_name     String   @db.VarChar(255)
+  Timestamp      DateTime @default(now()) @db.Timestamp(6)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model product_orders {
+  ID         Int      @id @default(autoincrement())
+  Product_ID Int
+  Label_ID   Int
+  Content    String   @db.VarChar(255)
+  Form_ID    Int
+  Status     String   @default("New") @db.VarChar(20)
+  Timestamp  DateTime @default(now()) @db.Timestamp(6)
+}
+
+model product_prices {
+  Price_ID       Int      @id @default(autoincrement())
+  Price          Float
+  mPrice         Float
+  Name_ar        String   @db.VarChar(155)
+  Name_en        String   @db.VarChar(155)
+  Description_ar String   @db.VarChar(255)
+  Description_en String   @db.VarChar(255)
+  Timestamp      DateTime @default(now()) @db.Timestamp(6)
+  period         Int      @default(365)
+  mperiod        Int      @default(30)
+  Price_Status   Int      @default(1) @db.SmallInt
+  is_delete      Int
+}
+
+model project {
+  ID                          Int       @id @default(autoincrement())
+  Website_ID                  Int
+  Project_Title_ar            String?   @db.VarChar(100)
+  Project_Title_en            String?   @db.VarChar(100)
+  Project_Subtitle_ar         String    @db.VarChar(100)
+  Project_Subtitle_en         String    @db.VarChar(100)
+  Project_ShortDescription_en String?   @db.VarChar(600)
+  Project_ShortDescription_ar String?   @db.VarChar(600)
+  Project_Detail_ar           String
+  Project_Detail_en           String
+  Project_Image               String    @db.VarChar(100)
+  Project_Logo                String?   @db.VarChar(100)
+  Project_Background          String?   @db.VarChar(255)
+  Order_No                    Int
+  Timestamp                   DateTime  @default(now()) @db.Timestamp(6)
+  Form_Status                 Int       @default(0) @db.SmallInt
+  FormID                      Int?
+  Slug_ar                     String?   @unique(map: "project_slug_ar") @db.VarChar(300)
+  Slug_en                     String?   @unique(map: "project_slug_en") @db.VarChar(300)
+  Status                      Int?      @default(1) @db.SmallInt
+  Is_Deleted                  Int       @default(0) @db.SmallInt
+  Deleted_At                  DateTime? @db.Timestamp(6)
+}
+
+model project_forms {
+  PF_ID      Int      @id @default(autoincrement())
+  Proj_ID    Int
+  PF_TEXT_en String?  @db.VarChar(255)
+  PF_TEXT_ar String?  @db.VarChar(255)
+  PF_Status  Int      @db.SmallInt
+  Timestamp  DateTime @default(now()) @db.Timestamp(6)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model project_orders {
+  ID         Int      @id @default(autoincrement())
+  Project_ID Int
+  Label_ID   Int
+  Content    String   @db.VarChar(255)
+  Form_ID    Int
+  Status     String   @default("New") @db.VarChar(20)
+  Timestamp  DateTime @default(now()) @db.Timestamp(6)
+}
+
+model reseller {
+  Reseller_ID   Int      @id @default(autoincrement())
+  Reseller_Name String   @db.VarChar(25)
+  Timestamp     DateTime @default(now()) @db.Timestamp(6)
+}
+
+model scripts_code {
+  ID            Int      @id @default(autoincrement())
+  Script_Name   String   @default("") @db.VarChar(255)
+  Script_Footer String
+  Script_Header String?
+  Timestamp     DateTime @default(now()) @db.Timestamp(6)
+}
+
+model scripts_conversion {
+  ID                    Int      @id @default(autoincrement())
+  section_content_table String   @db.VarChar(200)
+  Table_ID              Int
+  gtag_Conversion_ID    String   @db.VarChar(150)
+  Timestamp             DateTime @default(now()) @db.Timestamp(6)
+}
+
+model section_colors {
+  ID                    Int      @id @default(autoincrement())
+  Section_ID            Int
+  title_color           Int?
+  subtitle_color        Int?
+  paragraph_color       Int?
+  button_color          Int?
+  background_color      String?  @db.VarChar(155)
+  card_background_color Int      @default(-1)
+  background_image      String?  @db.VarChar(155)
+  Timestamp             DateTime @default(now()) @db.Timestamp(6)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model sections {
+  ID                        Int      @id @default(autoincrement())
+  Website_ID                Int
+  Section_Title_ar          String   @db.VarChar(100)
+  Section_Title_en          String   @db.VarChar(100)
+  Custom_Section_Title_ar   String?  @db.VarChar(100)
+  Custom_Section_Title_en   String?  @db.VarChar(100)
+  Description_en            String?  @db.VarChar(500)
+  Description_ar            String?  @db.VarChar(500)
+  Key_Words_en              String?  @db.VarChar(255)
+  Key_Words_ar              String?  @db.VarChar(255)
+  Section_Image             String   @db.VarChar(150)
+  Section_Content_Table     String   @db.VarChar(100)
+  Timestamp                 DateTime @default(now()) @db.Timestamp(6)
+  Page_ID                   Int      @default(0)
+  Order_No                  Int      @default(0)
+  BG_Color                  String?  @default("system") @db.VarChar(20)
+  Section_Request           Int?     @db.SmallInt
+  Section_type              String   @default("uncategorized") @db.VarChar(20)
+  Section_Request_Posiition String   @default("below") @db.VarChar(10)
+  In_Header                 Int?
+  Status                    Int      @default(1) @db.SmallInt
+}
+
+model service {
+  ID                     Int       @id @default(autoincrement())
+  Website_ID             Int
+  Service_Title_ar       String?   @db.VarChar(100)
+  Service_Title_en       String?   @db.VarChar(100)
+  Service_Subtitle_ar    String    @db.VarChar(100)
+  Service_Subtitle_en    String    @db.VarChar(100)
+  Service_Detail_ar      String
+  Service_Detail_en      String
+  Service_Description_ar String
+  Service_Description_en String
+  Service_Image          String    @db.VarChar(100)
+  Timestamp              DateTime  @default(now()) @db.Timestamp(6)
+  Status                 Int?      @default(1) @db.SmallInt
+  FormID                 Int?
+  LinkType               String    @default("description") @db.VarChar(50)
+  Link                   String?   @db.VarChar(300)
+  Slug_ar                String?   @unique(map: "service_slug_ar") @db.VarChar(300)
+  Slug_en                String?   @unique(map: "service_slug_en") @db.VarChar(300)
+  video_url              String?   @db.VarChar(300)
+  Order_No               Int
+  Is_Deleted             Int       @default(0) @db.SmallInt
+  Deleted_At             DateTime? @db.Timestamp(6)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model service_orders {
+  ID         Int      @id @default(autoincrement())
+  Service_ID Int
+  Label_ID   Int
+  Content    String   @db.VarChar(255)
+  Form_ID    Int
+  Status     String   @default("New") @db.VarChar(20)
+  Timestamp  DateTime @default(now()) @db.Timestamp(6)
+}
+
+model sessions {
+  id         String   @db.VarChar(128)
+  ip_address String   @db.VarChar(45)
+  timestamp  DateTime @unique(map: "sessions_timestamp") @default(now()) @db.Timestamp(6)
+  data       Bytes
+
+  @@id([id, ip_address])
+}
+
+model settings {
+  ID          Int      @id @default(autoincrement())
+  Website_ID  Int
+  Setting_Key String?  @db.VarChar(100)
+  Value       String   @db.VarChar(255)
+  Timestamp   DateTime @default(now()) @db.Timestamp(6)
+}
+
+model slider {
+  ID                 Int       @id @default(autoincrement())
+  Website_ID         Int
+  Slider_Title_ar    String?   @db.VarChar(100)
+  Slider_Title_en    String?   @db.VarChar(100)
+  Slider_Subtitle_ar String?   @db.VarChar(100)
+  Slider_Subtitle_en String?   @db.VarChar(100)
+  Slider_Button_ar   String?   @db.VarChar(255)
+  Slider_Button_en   String?   @db.VarChar(255)
+  Slider_Details_ar  String?
+  Slider_Details_en  String?
+  Slider_Link        String?   @db.VarChar(100)
+  File_Type          Int       @default(1) @db.SmallInt
+  Slider_Image       String?   @db.VarChar(150)
+  Order_No           Int
+  flip_image         Int?      @default(0) @db.SmallInt
+  Status             Int?      @default(1) @db.SmallInt
+  Is_Deleted         Int       @default(0) @db.SmallInt
+  Deleted_At         DateTime? @db.Timestamp(6)
+  Timestamp          DateTime  @default(now()) @db.Timestamp(6)
+  Slider_Video       String?   @db.VarChar(150)
+}
+
+model social_media {
+  ID                   Int      @id @default(autoincrement())
+  Website_ID           Int
+  Socialmedia_Title_ar String   @db.VarChar(100)
+  Socialmedia_Title_en String   @db.VarChar(100)
+  Socialmedia_Link     String   @db.VarChar(150)
+  Socialmedia_Icon     String   @db.VarChar(25)
+  Timestamp            DateTime @default(now()) @db.Timestamp(6)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model sub_customer {
+  ID              Int       @id @default(autoincrement())
+  Sub_Customer_ID Int
+  Subscription_ID Int
+  Status          String    @db.VarChar(20)
+  Permission      String    @default("full") @db.VarChar(20)
+  Created_by      Int
+  Created_at      DateTime  @default(now()) @db.Timestamp(6)
+  Approved_at     DateTime? @db.Timestamp(6)
+  Rejected_at     DateTime? @db.Timestamp(6)
+  Removed_at      DateTime? @db.Timestamp(6)
+  Content         String    @db.VarChar(600)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model subscription {
+  Subscription_ID Int       @id @default(autoincrement())
+  Customer_ID     String    @db.VarChar(100)
+  Sku_ID          Int
+  Price_ID        Int
+  Website_ID      Int
+  period          Int
+  Expire_At       DateTime? @db.Timestamp(6)
+  Period_Type     String?   @db.VarChar(50)
+  Timestamp       DateTime  @default(now()) @db.Timestamp(6)
+  IsAliasCreated  Int       @default(0) @db.SmallInt
+  subStatus       String    @default("pending") @db.VarChar(20)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model subscription_history {
+  ID                Int       @id @default(autoincrement())
+  Subscription_ID   Int
+  Customer_ID       String    @db.VarChar(100)
+  subscription_type String    @db.VarChar(20)
+  Sku_ID            Int
+  Price_ID          Int
+  Amount            Float     @default(-1) @db.Real
+  VAT               Float     @default(0) @db.Real
+  Website_ID        Int
+  period            Int
+  Expire_At         DateTime? @db.Timestamp(6)
+  Start_Date        DateTime  @db.Date
+  payment_verified  Int       @default(0) @db.SmallInt
+  payment_ref       String?   @db.VarChar(255)
+  card_type         String?   @db.VarChar(100)
+  Timestamp         DateTime  @default(now()) @db.Timestamp(6)
+  IsAliasCreated    Int       @default(0) @db.SmallInt
+  response_code     Int       @default(0)
+  User_Role         String    @db.VarChar(20)
+  User_Id           Int       @default(0)
+}
+
+model team {
+  ID                  Int       @id @default(autoincrement())
+  Website_ID          Int
+  name_ar             String?   @db.VarChar(255)
+  position_ar         String?   @db.VarChar(255)
+  name_en             String?   @db.VarChar(255)
+  position_en         String?   @db.VarChar(255)
+  Team_Description_ar String?
+  Team_Description_en String?
+  Team_Photo          String?   @db.VarChar(300)
+  Slug_ar             String?   @unique(map: "team_slug_ar") @db.VarChar(300)
+  Slug_en             String?   @unique(map: "team_slug_en") @db.VarChar(300)
+  Order_No            Int
+  Status              Int       @default(1) @db.SmallInt
+  Is_Deleted          Int       @default(0) @db.SmallInt
+  Deleted_At          DateTime? @db.Timestamp(6)
+  Timestamp           DateTime  @default(now()) @db.Timestamp(6)
+}
+
+model terms_and_conditions {
+  ID             Int      @id @default(autoincrement())
+  Website_ID     Int
+  TC_title_en    String   @db.VarChar(100)
+  TC_title_ar    String   @db.VarChar(100)
+  TC_subtitle_en String?  @db.VarChar(150)
+  TC_subtitle_ar String?  @db.VarChar(150)
+  TC_detail_en   String
+  TC_detail_ar   String
+  Status         Int      @default(1) @db.SmallInt
+  Timestamp      DateTime @default(now()) @db.Timestamp(6)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model users {
+  User_ID            Int       @id @default(autoincrement())
+  Role_ID            Int       @default(3)
+  Username           String    @db.VarChar(200)
+  Password           String?   @db.VarChar(128)
+  Fullname           String?   @db.VarChar(200)
+  Picture            String?   @default("avatar1.png") @db.VarChar(200)
+  Status             Int       @default(1) @db.SmallInt
+  Reset_Token        String?   @db.VarChar(300)
+  Reset_Token_Expiry DateTime? @db.Timestamp(6)
+  Invitation_Status  String    @db.VarChar(20)
+  Created_at         DateTime  @db.Timestamp(6)
+  Approved_at        DateTime? @db.Timestamp(6)
+  Rejected_at        DateTime? @db.Timestamp(6)
+  Removed_at         DateTime? @db.Timestamp(6)
+  Verify_Token       String?   @db.VarChar(300)
+  Verify_Page_Token  String?   @db.VarChar(300)
+  Timestamp          DateTime  @default(now()) @db.Timestamp(6)
+  NoAttempts         Int?      @default(0)
+  LastFailedLogin    DateTime? @db.Timestamp(6)
+  Deleted_at         DateTime? @db.Timestamp(6)
+}
+
+model users_roles {
+  Role_ID   Int      @id @default(autoincrement())
+  Role      String   @db.VarChar(50)
+  Name      String   @db.VarChar(50)
+  Type      String   @default("admin") @db.VarChar(255)
+  Timestamp DateTime @default(now()) @db.Timestamp(6)
+}
+
+model videobanner {
+  ID                     Int      @id @default(autoincrement())
+  Website_ID             Int
+  Videobanner_Title_ar   String   @db.VarChar(100)
+  Videobanner_Title_en   String   @db.VarChar(100)
+  Videobanner_Url        String   @db.VarChar(150)
+  Videobanner_Background String?  @db.VarChar(155)
+  Timestamp              DateTime @default(now()) @db.Timestamp(6)
+  Status                 Int      @default(1) @db.SmallInt
+}
+
+model visitor {
+  id             Int      @id @default(autoincrement())
+  Website_ID     Int
+  IP             String   @db.VarChar(100)
+  Browser        String   @db.VarChar(100)
+  BrowserVersion String?  @db.VarChar(100)
+  Platform       String?  @db.VarChar(100)
+  Timestamp      DateTime @default(now()) @db.Timestamp(6)
+
+  @@unique([Website_ID, IP], map: "visitor_website_ip")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model website_activity_template {
+  ID               Int       @id @default(autoincrement())
+  Activity_Type_ID Int
+  Section          String    @db.VarChar(50)
+  Status           Int       @default(1) @db.SmallInt
+  Is_Deleted       Int       @default(0) @db.SmallInt
+  Deleted_At       DateTime? @db.Timestamp(6)
+  Timestamp        DateTime  @default(now()) @db.Timestamp(6)
+}
+
+model website_activity_type {
+  ID               Int       @id @default(autoincrement())
+  Activity_Name_en String    @db.VarChar(255)
+  Activity_Name_ar String    @db.VarChar(255)
+  Status           Int       @default(1) @db.SmallInt
+  Is_Deleted       Int       @default(0) @db.SmallInt
+  Deleted_At       DateTime? @db.Timestamp(6)
+  Timestamp        DateTime  @default(now()) @db.Timestamp(6)
+}
+
+model website_app {
+  ID                    Int      @id @default(autoincrement())
+  Website_ID            Int
+  APP_ID                Int
+  Restaurant_Link       String?  @db.VarChar(255)
+  Apple_Restaurant_Link String?  @db.VarChar(255)
+  status                Int      @db.SmallInt
+  Timestamp             DateTime @default(now()) @db.Timestamp(6)
+}
+
+model website_category {
+  ID           Int       @id @default(autoincrement())
+  Website_ID   Int
+  CAT_Title_ar String    @db.VarChar(255)
+  CAT_Title_en String    @db.VarChar(255)
+  CAT_Image    String    @db.VarChar(155)
+  CAT_Tags     String    @db.VarChar(400)
+  status       Int       @default(1) @db.SmallInt
+  Timestamp    DateTime  @default(now()) @db.Timestamp(6)
+  Is_Deleted   Int       @default(0) @db.SmallInt
+  Deleted_At   DateTime? @db.Timestamp(6)
+}
+
+model website_item {
+  ID                  Int       @id @default(autoincrement())
+  Website_ID          Int
+  CAT_ID              Int
+  Item_Title_en       String    @db.VarChar(255)
+  Item_Title_ar       String    @db.VarChar(255)
+  Item_Subtitle_en    String    @db.VarChar(255)
+  Item_Subtitle_ar    String    @db.VarChar(255)
+  Item_Description_en String    @db.VarChar(555)
+  Item_Description_ar String    @db.VarChar(555)
+  Item_Content_en     String
+  Item_Content_ar     String
+  Item_Image          String    @db.VarChar(155)
+  Item_Price          String    @db.VarChar(55)
+  Item_ProductNo      String    @db.VarChar(55)
+  Slug_ar             String?   @unique(map: "website_item_slug_ar") @db.VarChar(300)
+  Slug_en             String?   @unique(map: "website_item_slug_en") @db.VarChar(300)
+  status              Int       @db.SmallInt
+  Order_No            Int
+  Timestamp           DateTime  @default(now()) @db.Timestamp(6)
+  Is_Deleted          Int       @default(0) @db.SmallInt
+  Deleted_At          DateTime? @db.Timestamp(6)
+}
+
+model website_scripts {
+  ID             Int      @id @default(autoincrement())
+  Script_ID      Int
+  Website_ID     Int
+  Script_User_ID String?  @db.VarChar(300)
+  Status         Int      @default(1) @db.SmallInt
+  Timestamp      DateTime @default(now()) @db.Timestamp(6)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model websites {
+  ID          Int      @id @default(autoincrement())
+  domain      String   @db.VarChar(55)
+  isVerified  Int      @default(0) @db.SmallInt
+  isWizard    Int      @default(0) @db.SmallInt
+  Reseller_ID String   @default("dnet") @db.VarChar(20)
+  Status      Int      @db.SmallInt
+  is_publish  Int      @default(0) @db.SmallInt
+  Timestamp   DateTime @default(now()) @db.Timestamp(6)
+}

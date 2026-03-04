@@ -1,0 +1,177 @@
+/* Start dark mode */
+.dark-light_label {
+  background-color: #fff;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  line-height: 1;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+}
+.dark-light_label .icon {
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+}
+.dark-light_label .icon--sun {
+  transform: scale(0);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+}
+.dark-light_label #darkModeSwitch:checked + .icon--moon {
+  transform: rotate(360deg) scale(0);
+  -webkit-transform: rotate(360deg) scale(0);
+  -moz-transform: rotate(360deg) scale(0);
+  -ms-transform: rotate(360deg) scale(0);
+  -o-transform: rotate(360deg) scale(0);
+}
+.dark-light_label #darkModeSwitch:checked ~ .icon--sun {
+  transform: rotate(360deg) scale(1);
+  -webkit-transform: rotate(360deg) scale(1);
+  -moz-transform: rotate(360deg) scale(1);
+  -ms-transform: rotate(360deg) scale(1);
+  -o-transform: rotate(360deg) scale(1);
+}
+body.dark {
+  background-color: #000;
+}
+body.dark .whiteColor_dark {
+  color: #fff !important;
+}
+body.dark .page-content-wrapper .card,
+body.dark .main-navbar {
+  box-shadow: 0 3px 6px #40404029;
+}
+body.dark .grayColor_dark,
+body.dark .sidebar-nav li a,
+body.dark .sections-website table td,
+body.dark .config-tab.nav-tabs .nav-link,
+body.dark .filter-option-inner-inner,
+.website-design__form .select-colors__web-design .form-group__colors > label,
+body.dark .text-dark,
+body.dark .text-black,
+body.dark .plan_card-list li,
+body.dark .page-title,
+body.dark .payment-info,
+body.dark .payment-info_total,
+body.dark .payment-way-box .payment-way {
+  color: #e7e9ea !important;
+}
+body.dark .sidebar-nav li a .svgEdit {
+  fill: #e7e9ea !important;
+}
+body.dark #sidebar-wrapper {
+  background-color: #0f0f0f !important;
+}
+body.dark .btn.btn-light,
+body.dark .myPlan_details .myPlan_link,
+body.dark .pagination .paginate_button a {
+  color: #e7e9ea !important;
+  background-color: #0f0f0f !important;
+}
+body.dark b {
+  color: #9a9a9a;
+}
+body.dark .sidebar-nav li a svg path,
+body.dark .sections-website table td svg path {
+  stroke: #e7e9ea;
+}
+body.dark .sections-website table td .svgEdit {
+  fill: #e7e9ea;
+}
+body.dark .sidebar-nav li a:not(.active):hover,
+body.dark .sidebar-nav li a:not(.active):hover svg,
+body.dark .sidebar-nav li a:not(.active):hover svg path {
+  color: #42a5f5 !important;
+  stroke: #42a5f5;
+}
+body.dark .config-tab.nav-tabs .nav-link:hover,
+body.dark .config-tab.nav-tabs .nav-link.active {
+  color: var(--gray-dark-col) !important;
+  border-bottom-color: var(--gray-dark-col);
+}
+body.dark .card-title,
+body.dark .plan_name,
+body.dark .myPlan_details .plan_expiry-day,
+body.dark .myPlan_details .plan_price,
+body.dark .transaction-history .plan_price {
+  color: var(--gray-dark-col) !important;
+}
+body.dark .card-head.border-bottom,
+body.dark .nav.nav-tabs,
+body.dark tr,
+body.dark th,
+body.dark td,
+body.dark .btn.btn-light,
+body.dark .myPlan_details .myPlan_link,
+body.dark .website-design__form label,
+body.dark .website-design__form input,
+body.dark .pagination .paginate_button a {
+  border-color: #2f2f2f !important;
+}
+body.dark .cardColor_dark,
+body.dark .main-navbar,
+body.dark .sidebar-nav,
+body.dark .language-tab .nav-link,
+body.dark .page-content-wrapper .card,
+body.dark .page-content-wrapper .myPlan_details,
+body.dark .page-content-wrapper .transaction-history,
+body.dark .payment-process_container .payment_modal,
+body.dark .main-navbar .action .dropdown-menu {
+  background-color: #0f0f0f !important;
+}
+body.dark .dark-light_label span.lightMode svg {
+  fill: #fff;
+}
+body.dark .main-navbar .website-name .website-title,
+body.dark .custom-control-label,
+body.dark .plan_card .plan_card-title,
+body.dark .payment_wrapper .payment-title,
+body.dark .payment_wrapper .payment-details_title {
+  color: #fff !important;
+}
+body.dark .navbar-light .navbar-toggler-icon {
+  background-image: url("../img/white-hamburger-menu-icon.png");
+}
+body.dark .form-control,
+body.dark form.dropzone,
+body.dark .bootstrap-tagsinput,
+body.dark .bootstrap-tagsinput input,
+body.dark .bootstrap-select .btn-light,
+body.dark sss,
+body.dark .domain-name__server {
+  background-color: #141414 !important;
+  border-color: #2f2f2f !important;
+  color: #e2e2e2 !important;
+}
+body.dark .form-control::placeholder {
+  color: var(--gray-dark-col);
+}
+body.dark .payment-way-box .payment-way:hover,
+body.dark .payment-way-box input[type="radio"]:checked + label.payment-way,
+body.dark .payment-process_container .payment_modal h2 {
+  color: #fff !important;
+}
+@media screen and (max-width: 370px) {
+  .navbar .action {
+    margin-top: 10px;
+  }
+}
+/* End dark mode */

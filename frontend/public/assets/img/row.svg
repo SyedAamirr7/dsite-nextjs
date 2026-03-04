@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="700px" height="452px" viewBox="0 0 700 452" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>fixed-onscroll-lg</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="fixed-onscroll-lg">
+            <path d="M0,34 L700,34 L700,447 C700,449.761424 697.761424,452 695,452 L5,452 C2.23857625,452 3.38176876e-16,449.761424 0,447 L0,34 L0,34 Z" id="Rectangle-4" fill="#E3EBFF"></path>
+            <rect id="Rectangle" fill="#EEF3FF" x="64" y="69" width="572" height="383"></rect>
+            <polygon id="Rectangle" fill="#C5C5C5" opacity="0.640206473" points="330 388.983143 371.305656 352 413 388.983143 392.125829 389.433503 392.125829 404 349.403686 404 349.403686 388.983143"></polygon>
+            <path d="M5,0 L695,0 C697.761424,-5.07265313e-16 700,2.23857625 700,5 L700,34 L700,34 L0,34 L0,5 C-3.38176876e-16,2.23857625 2.23857625,5.07265313e-16 5,0 Z" id="Rectangle" fill="#737373"></path>
+            <g id="Group-5" transform="translate(17.000000, 12.000000)" fill="#C7C7C7">
+                <path d="M4.98484848,0 C7.73790428,0 9.96969697,2.23857625 9.96969697,5 C9.96969697,7.76142375 7.73790428,10 4.98484848,10 C2.23179269,10 0,7.76142375 0,5 C0,2.23857625 2.23179269,0 4.98484848,0 Z M23.5,0 C26.2530558,0 28.4848485,2.23857625 28.4848485,5 C28.4848485,7.76142375 26.2530558,10 23.5,10 C20.7469442,10 18.5151515,7.76142375 18.5151515,5 C18.5151515,2.23857625 20.7469442,0 23.5,0 Z M42.0151515,0 C44.7682073,0 47,2.23857625 47,5 C47,7.76142375 44.7682073,10 42.0151515,10 C39.2620957,10 37.030303,7.76142375 37.030303,5 C37.030303,2.23857625 39.2620957,0 42.0151515,0 Z" id="Combined-Shape"></path>
+            </g>
+            <g id="Group-3" transform="translate(0.000000, 34.000000)">
+                <rect id="Rectangle-3" fill="#428EF7" x="0" y="0" width="700" height="52"></rect>
+                <g id="Group-9" transform="translate(30.000000, 18.000000)">
+                    <rect id="Rectangle-6-Copy-2" fill="#9EC7FF" x="82" y="0" width="46" height="16" rx="4"></rect>
+                    <rect id="Rectangle-6-Copy-4" fill="#9EC7FF" x="236" y="0" width="50" height="16" rx="4"></rect>
+                    <rect id="Rectangle-6-Copy" fill="#E0EDFF" x="0" y="0" width="50" height="16" rx="4"></rect>
+                    <rect id="Rectangle-6-Copy-3" fill="#9EC7FF" x="158" y="0" width="46" height="16" rx="4"></rect>
+                    <rect id="Rectangle-6-Copy-5" fill="#9EC7FF" x="318" y="0" width="50" height="16" rx="4"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

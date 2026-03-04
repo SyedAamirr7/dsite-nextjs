@@ -1,0 +1,297 @@
+/* LTR-specific fixes for English version */
+
+/* Fix website name alignment for LTR */
+[dir="ltr"] .main-navbar .website-name {
+  text-align: left;
+}
+
+[dir="ltr"] .main-navbar .website-name .website-title,
+[dir="ltr"] .main-navbar .website-name .website-domain {
+  text-align: left;
+}
+
+/* Fix sidebar navigation alignment for LTR */
+[dir="ltr"] .sidebar-nav li a {
+  display: flex !important;
+  align-items: center !important;
+  flex-direction: row !important;
+  text-align: left !important;
+  justify-content: flex-start !important;
+  flex-wrap: nowrap !important;
+}
+
+/* Fix icon positioning - ensure icon is on the left side */
+[dir="ltr"] .sidebar-nav li a .icon {
+  order: -1 !important;
+  margin-right: 0.5rem !important;
+  margin-left: 0 !important;
+  flex-shrink: 0;
+  display: inline-flex !important;
+  align-items: center;
+  float: none !important;
+}
+
+/* Override Bootstrap margin-left classes for icons in sidebar - force icons to left */
+[dir="ltr"] .sidebar-nav li a .icon.ml-2,
+[dir="ltr"] .sidebar-nav li a .icon.ml-3,
+[dir="ltr"] .sidebar-nav li a .icon.ml-4,
+[dir="ltr"] .sidebar-nav li a .icon.ml-5 {
+  margin-left: 0 !important;
+  margin-right: 0.5rem !important;
+}
+
+/* Text content alignment */
+[dir="ltr"] .sidebar-nav li a {
+  text-align: left;
+}
+
+/* Fix dropdown toggle alignment - Settings and other dropdowns */
+[dir="ltr"] .sidebar-nav li a.dropdown-toggle {
+  justify-content: flex-start !important;
+  position: relative !important;
+  padding-right: 2.5rem !important;
+  align-items: center !important;
+}
+
+[dir="ltr"] .sidebar-nav li a.dropdown-toggle .icon {
+  order: -1 !important;
+  margin-right: 0.5rem !important;
+  margin-left: 0 !important;
+  flex-shrink: 0;
+}
+
+/* Text in dropdown toggle - ensure it flows after icon */
+[dir="ltr"] .sidebar-nav li a.dropdown-toggle {
+  text-align: left;
+}
+
+/* Dropdown arrow positioning - override update-custom.css */
+[dir="ltr"] .sidebar-nav li a.dropdown-toggle::after {
+  position: absolute !important;
+  right: 1rem !important;
+  left: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  order: 999 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+/* Fix navbar alignment */
+[dir="ltr"] .main-navbar .head {
+  justify-content: flex-start;
+}
+
+[dir="ltr"] .main-navbar .action {
+  justify-content: flex-end;
+}
+
+/* Fix dropdown alignment */
+[dir="ltr"] .dropdown-menu {
+  left: 0;
+  right: auto;
+}
+
+/* Fix form labels alignment */
+[dir="ltr"] .form-label {
+  text-align: left;
+}
+
+[dir="ltr"] .align-start {
+  text-align: left;
+}
+
+/* Fix table alignment */
+[dir="ltr"] .table {
+  text-align: left;
+}
+
+[dir="ltr"] .table th,
+[dir="ltr"] .table td {
+  text-align: left;
+}
+
+/* Fix card body alignment */
+[dir="ltr"] .card-body {
+  text-align: left;
+}
+
+/* Fix button groups */
+[dir="ltr"] .btn-group {
+  flex-direction: row;
+}
+
+/* Fix input groups */
+[dir="ltr"] .input-group-prepend {
+  margin-right: -1px;
+  margin-left: 0;
+}
+
+[dir="ltr"] .input-group-append {
+  margin-left: -1px;
+  margin-right: 0;
+}
+
+/* Fix badges and labels */
+[dir="ltr"] .badge,
+[dir="ltr"] .label {
+  text-align: left;
+}
+
+/* Fix pagination */
+[dir="ltr"] .pagination {
+  justify-content: flex-start;
+}
+
+/* Fix breadcrumbs */
+[dir="ltr"] .breadcrumb {
+  justify-content: flex-start;
+}
+
+/* Fix list alignment */
+[dir="ltr"] ul,
+[dir="ltr"] ol {
+  padding-left: 2rem;
+  padding-right: 0;
+}
+
+/* Fix navigation items */
+[dir="ltr"] .nav-link {
+  text-align: left !important;
+}
+
+/* Override default block display for sidebar nav links */
+[dir="ltr"] .sidebar-nav .nav-link {
+  display: flex !important;
+}
+
+/* Fix card headers */
+[dir="ltr"] .card-header {
+  text-align: left;
+}
+
+/* Fix modal alignment */
+[dir="ltr"] .modal-header,
+[dir="ltr"] .modal-body,
+[dir="ltr"] .modal-footer {
+  text-align: left;
+}
+
+/* Fix alert alignment */
+[dir="ltr"] .alert {
+  text-align: left;
+}
+
+/* Fix tooltip and popover */
+[dir="ltr"] .tooltip,
+[dir="ltr"] .popover {
+  text-align: left;
+}
+
+/* Fix navbar brand */
+[dir="ltr"] .navbar-brand {
+  margin-right: 1rem;
+  margin-left: 0;
+}
+
+/* Fix spacing in action buttons */
+[dir="ltr"] .main-navbar .action > * {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+[dir="ltr"] .main-navbar .action > *:first-child {
+  margin-left: 0;
+}
+
+/* This section is now handled above */
+
+/* Fix navbar brand positioning */
+[dir="ltr"] .main-navbar .navbar-brand {
+  margin-right: 1rem;
+  margin-left: 0;
+}
+
+/* Fix preview button */
+[dir="ltr"] .btn-primary {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+[dir="ltr"] .btn-primary img {
+  order: 1;
+  margin-right: 0.75rem;
+  margin-left: 0;
+}
+
+[dir="ltr"] .btn-primary span {
+  order: 2;
+}
+
+/* Fix form groups */
+[dir="ltr"] .form-group {
+  text-align: left;
+}
+
+[dir="ltr"] .form-group label {
+  text-align: left;
+}
+
+/* Fix card titles */
+[dir="ltr"] .card-title,
+[dir="ltr"] .card-head {
+  text-align: left;
+}
+
+/* Fix table actions */
+[dir="ltr"] .table .btn-group {
+  justify-content: flex-start;
+}
+
+/* Fix page title */
+[dir="ltr"] .page-title {
+  text-align: left;
+}
+
+/* Fix navbar head section */
+[dir="ltr"] .main-navbar .head {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Fix action section */
+[dir="ltr"] .main-navbar .action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+/* Language tabs - keep original alignment (right side) */
+/* Only text changed from "Arabic" to "العربية", positioning unchanged */
+
+/* Fix preview button icon */
+[dir="ltr"] .btn-primary img {
+  margin-right: 0.5rem;
+  margin-left: 0;
+}
+
+/* Fix user dropdown */
+[dir="ltr"] .user-dropdown {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+/* Fix language switcher button */
+[dir="ltr"] .language-switcher {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+/* Fix dark mode toggle */
+[dir="ltr"] .dark-light_label {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}

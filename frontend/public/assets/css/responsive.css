@@ -1,0 +1,331 @@
+/**
+ * ACP responsive styles – apply across all pages.
+ * Breakpoints: 576px, 768px, 992px, 1024px, 1200px
+ */
+
+/* ========== Navbar: show hamburger on small screens ========== */
+.main-navbar .head .menu-toggle.menu-toggle-nav {
+  display: none !important;
+}
+@media (max-width: 1024px) {
+  .main-navbar .head .menu-toggle.menu-toggle-nav {
+    display: flex !important;
+  }
+}
+.main-navbar .head .menu-toggle {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin-inline-end: 0.75rem;
+  border-radius: 50%;
+  background-color: #3459a5;
+  color: #fff;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.main-navbar .head .menu-toggle.d-none {
+  display: none !important;
+}
+@media (max-width: 1024px) {
+  .main-navbar .head .menu-toggle:not(.d-none) {
+    display: flex !important;
+  }
+}
+@media (min-width: 1025px) {
+  .main-navbar .head .menu-toggle {
+    display: none !important;
+  }
+}
+
+/* ========== Navbar: wrap and spacing on small screens ========== */
+.main-navbar {
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.main-navbar .head {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.main-navbar .action {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+@media (max-width: 767px) {
+  .main-navbar {
+    padding: 0.75rem;
+  }
+  .main-navbar .page-title {
+    font-size: 1.125rem;
+  }
+  .main-navbar .action .btn-primary[style*="187.5px"] {
+    width: auto !important;
+    min-width: 44px;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .main-navbar .website-name .dropdown-toggle {
+    padding: 0.25rem 0.5rem;
+  }
+  .main-navbar .website-name .website-title,
+  .main-navbar .website-name .website-domain {
+    font-size: 0.875rem;
+  }
+}
+@media (max-width: 575px) {
+  .main-navbar .action {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .main-navbar .action .d-flex {
+    flex-wrap: wrap;
+  }
+  .plan-status {
+    order: 1;
+  }
+}
+
+/* ========== Sidebar: overlay on mobile when open ========== */
+@media (max-width: 1024px) {
+  #sidebar-wrapper {
+    z-index: 1050;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  #wrapper:not(.toggled) #sidebar-wrapper {
+    pointer-events: none;
+    visibility: hidden;
+  }
+  #wrapper.toggled #page-content-wrapper::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1040;
+    pointer-events: auto;
+  }
+  /* Keep navbar menu button above overlay so it stays clickable to close sidebar */
+  .main-navbar .head .menu-toggle.menu-toggle-nav {
+    position: relative;
+    z-index: 1041;
+  }
+}
+@media (min-width: 1025px) {
+  #wrapper.toggled #page-content-wrapper::before {
+    display: none;
+  }
+}
+
+/* ========== Page content: prevent overflow ========== */
+#page-content-wrapper,
+.page-content-wrapper {
+  min-width: 0;
+  overflow-x: hidden;
+}
+.container-fluid {
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (max-width: 575px) {
+  #page-content-wrapper .container-fluid {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .page-content-wrapper {
+    padding-top: 0;
+  }
+}
+
+/* ========== Tables: horizontal scroll on small screens ========== */
+.page-content-wrapper .table-responsive,
+.page-content-wrapper .table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.page-content-wrapper table {
+  min-width: 0;
+}
+@media (max-width: 991px) {
+  .page-content-wrapper .table,
+  .myPlan_details .table,
+  .transaction-history .table,
+  .subscription-table .table {
+    min-width: 600px;
+  }
+  .page-content-wrapper .table-responsive,
+  .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* ========== Cards ========== */
+.page-content-wrapper .card {
+  overflow: hidden;
+}
+.page-content-wrapper .card-body {
+  overflow-wrap: break-word;
+}
+@media (max-width: 767px) {
+  .page-content-wrapper .card-body {
+    padding: 1rem !important;
+  }
+  .chart-card .card .card-body {
+    padding: 0.75rem !important;
+  }
+}
+@media (max-width: 575px) {
+  .page-content-wrapper .card-body {
+    padding: 0.75rem !important;
+  }
+}
+
+/* ========== Forms: stack on mobile ========== */
+.page-content-wrapper .form-group.row,
+.page-content-wrapper .row .form-group {
+  margin-left: 0;
+  margin-right: 0;
+}
+.page-content-wrapper .form-group .row [class*="col-"] {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+@media (max-width: 767px) {
+  .page-content-wrapper .review-user-pic,
+  .page-content-wrapper .review-product-pic,
+  .page-content-wrapper .review-projects-pic,
+  .page-content-wrapper .slider-view {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .page-content-wrapper .review-img-action {
+    min-width: 0;
+    width: 100%;
+  }
+  .page-content-wrapper .slider-view .upload,
+  .page-content-wrapper .slider-view .review-img {
+    width: 100% !important;
+    max-width: 100%;
+  }
+  .product-box,
+  .projects-box,
+  .slider-box {
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+  }
+  .product-pic,
+  .projects-pic,
+  .slider-pic {
+    min-width: 0;
+  }
+}
+
+/* ========== Language / config tabs ========== */
+.config-tab.nav-tabs,
+.language-tab {
+  flex-wrap: wrap;
+}
+.config-tab.nav-tabs .nav-link {
+  white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .language-tab .nav-link {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ========== Buttons and actions ========== */
+.page-content-wrapper .action .btn,
+.page-content-wrapper .btn-group .btn {
+  white-space: nowrap;
+}
+@media (max-width: 575px) {
+  .page-content-wrapper .action {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .page-content-wrapper .action .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .domain-expired-alert {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem !important;
+  }
+  .domain-expired-alert p {
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+/* ========== Dashboard chart row ========== */
+.chart-card .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.chart-card .row [class*="col-"] {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+@media (max-width: 991px) {
+  .chart-card .card {
+    min-height: auto;
+  }
+}
+
+/* ========== CKEditor / rich text ========== */
+.page-content-wrapper .editor-container_classic-editor,
+.page-content-wrapper .ck-editor {
+  max-width: 100%;
+}
+.page-content-wrapper .ck.ck-editor__editable_inline {
+  min-height: 120px;
+}
+
+/* ========== Profile / upload areas ========== */
+@media (max-width: 575px) {
+  .profile-avatar-wrap,
+  .profile-avatar {
+    max-width: 120px;
+    max-height: 120px;
+  }
+  .website-design__form .review-img {
+    max-width: 100%;
+  }
+  .website-design__form .colors_container .form-group label,
+  .website-design__form .colors_container .colorInputParent {
+    max-width: 100%;
+  }
+}
+
+/* ========== Plans / payment ========== */
+@media (max-width: 767px) {
+  .payment-way-box {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .payment-process_container .payment_modal {
+    padding: 2rem 1rem !important;
+    margin: 1rem;
+  }
+}
+@media (max-width: 575px) {
+  .plan_card .plan_card-title {
+    font-size: 1.5rem;
+  }
+  .plan_card .plan_card-badge {
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+/* ========== Utilities ========== */
+@media (max-width: 767px) {
+  .gap-4 { gap: 0.5rem !important; }
+  .gap-5 { gap: 0.75rem !important; }
+}

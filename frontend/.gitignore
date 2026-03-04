@@ -1,0 +1,8 @@
+node_modules
+acpt
+.next
+.ds_store
+/src/generated/prisma
+.env
+.env.local
+.env*.local

@@ -1,0 +1,34 @@
+name: Deploy STG FE
+
+on:
+  push:
+    branches: [staging]
+  pull_request:
+    branches: [staging]
+
+jobs:
+  build:
+    runs-on: dsitev2-fe
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy source to server path
+        run: |
+          sudo rm -rf /www/wwwroot/dsitev2.dnetdev.com/*
+          sudo cp -r * /www/wwwroot/dsitev2.dnetdev.com/
+      - name: Clean old Next.js Build
+        run: |
+          sudo rm -rf /www/wwwroot/dsitev2.dnetdev.com/.next
+      - name: Install dependencies
+        working-directory: /www/wwwroot/dsitev2.dnetdev.com
+        run: sudo npm install
+
+      - name: Build Next.js app
+        working-directory: /www/wwwroot/dsitev2.dnetdev.com
+        run: sudo npm run build --omit=dev
+
+      - name: Restart Service
+        working-directory: /www/wwwroot/dsitev2.dnetdev.com
+        run: sudo pm2 restart dsitev2-fe
+

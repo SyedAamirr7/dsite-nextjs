@@ -1,0 +1,324 @@
+/**
+ * config-form-info.css
+ * Styles only for config-form-info.html (Form builder with English/Arabic tabs).
+ * Do not load on other pages to avoid affecting site-wide layout.
+ */
+
+/* ===== Preferences dropdowns: LTR for English tab, RTL for Arabic tab ===== */
+.page-content-wrapper #pref_en .bootstrap-select .dropdown-menu,
+.page-content-wrapper #pref_en .dropdown-menu.show {
+  direction: ltr;
+  text-align: left;
+}
+.page-content-wrapper #pref_ar .bootstrap-select > .dropdown-toggle,
+.page-content-wrapper #pref_ar .bootstrap-select > .dropdown-toggle .filter-option-inner-inner {
+  direction: rtl;
+  text-align: right;
+}
+.page-content-wrapper #pref_ar .bootstrap-select .dropdown-menu,
+.page-content-wrapper #pref_ar .dropdown-menu.show {
+  direction: rtl;
+  text-align: right;
+}
+
+/* ===== Form builder: CHOOSE INPUT TYPE select =====
+   Use Bootstrap's native select styling (`custom-select`) and only
+   normalize height a bit for this page. */
+#selectFormType,
+#selectFormType_ar {
+  min-height: 44px;
+  cursor: pointer;
+  width: 260px;
+  max-width: 100%;
+  display: block;
+  /* align to the “end” side (right in LTR, left in RTL) */
+  margin-inline-start: auto;
+  border-radius: 10px;
+}
+
+/* ===== Build form (English pane) ===== */
+#BuildForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+#BuildForm #BuildFormInput,
+#BuildForm .build-menu {
+  max-width: 520px; /* match screenshot: centered/narrow cards */
+  width: 100%;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+}
+#BuildForm .sort-btn {
+  padding: 0 12px;
+}
+#BuildForm .sort-btn svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  color: rgba(180, 180, 180, 0.85);
+}
+#BuildForm .flex-grow-1 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#BuildForm .flex-grow-1 input.border-0 {
+  outline: none;
+  padding: 12px 5px;
+  flex: 1;
+  min-width: 0;
+  border: none !important;
+  background: transparent;
+}
+#BuildForm .build-form-label {
+  padding: 12px 5px;
+  color: #333;
+  font-size: 0.9375rem;
+}
+#BuildForm .flex-grow-1 svg {
+  flex-shrink: 0;
+  color: #666;
+}
+#BuildForm svg {
+  color: #666;
+}
+#BuildForm .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+[dir="rtl"] #BuildForm .buttons {
+  border-right: 1px solid #dee2e6;
+  padding-right: 12px;
+}
+[dir="ltr"] #BuildForm .buttons {
+  border-left: 1px solid #dee2e6;
+  padding-left: 12px;
+}
+#BuildForm .buttons button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  line-height: 1;
+  cursor: pointer;
+  padding: 12px;
+  transition: 0.3s;
+}
+#BuildForm .buttons button:hover,
+#BuildForm .buttons button.active {
+  background-color: #f4f3f3;
+  border-radius: 8px;
+}
+#BuildForm .buttons button:hover .required_icon,
+#BuildForm .buttons button.active .required_icon {
+  color: #2a4480;
+}
+#BuildForm .build-menu .border-bottom {
+  padding: 0;
+}
+#BuildForm .build-menu .p-3 .w-75 {
+  width: 75%;
+  max-width: 100%;
+}
+#BuildForm .build-menu input.border.p-2.rounded {
+  border: 1px solid #dee2e6 !important;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+}
+#BuildForm .build-menu .js-add-option {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+#BuildForm .build-menu .js-add-option:hover {
+  text-decoration: underline;
+}
+#BuildForm .build-menu .js-form-options .input-group {
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 39px;
+}
+#BuildForm .build-menu .js-form-options .input-group .form-control {
+  min-width: 0;
+  height: 39px;
+  min-height: 39px;
+}
+#BuildForm .build-menu .js-form-options .input-group-append {
+  flex-shrink: 0;
+  align-items: center;
+}
+
+/* Button spacing on this page only (Bootstrap Select dropdown toggle) */
+#pref_en button.btn,
+#pref_ar button.btn {
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+/* ===== Arabic Preferences tab (#pref_ar) ===== */
+#pref_ar {
+  direction: rtl;
+  text-align: right;
+}
+#pref_ar .card-body_title,
+#pref_ar .form-label,
+#pref_ar .card-body,
+#pref_ar .align-start {
+  text-align: right;
+}
+#pref_ar .form-control {
+  text-align: right;
+}
+#pref_ar .form-control::placeholder {
+  text-align: right;
+}
+#pref_ar .row {
+  text-align: right;
+}
+
+/* Build form in Arabic tab (#BuildForm_ar) */
+#BuildForm_ar,
+#pref_ar #BuildForm_ar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+#BuildForm_ar #BuildFormInput,
+#BuildForm_ar .build-menu,
+#pref_ar #BuildForm_ar #BuildFormInput,
+#pref_ar #BuildForm_ar .build-menu {
+  max-width: 520px; /* match screenshot: centered/narrow cards */
+  width: 100%;
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+}
+#pref_ar #BuildForm_ar .sort-btn {
+  padding: 0 12px;
+}
+#pref_ar #BuildForm_ar .sort-btn svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  color: rgba(180, 180, 180, 0.85);
+}
+#pref_ar #BuildForm_ar .flex-grow-1 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#pref_ar #BuildForm_ar .build-form-label {
+  padding: 12px 5px;
+  color: #333;
+  font-size: 0.9375rem;
+}
+#pref_ar #BuildForm_ar .flex-grow-1 svg {
+  flex-shrink: 0;
+  color: #666;
+}
+#pref_ar #BuildForm_ar svg {
+  color: #666;
+}
+#pref_ar #BuildForm_ar .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  border-right: 1px solid #dee2e6;
+  padding-right: 12px;
+}
+#pref_ar #BuildForm_ar .buttons button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  line-height: 1;
+  cursor: pointer;
+  padding: 12px;
+  transition: 0.3s;
+}
+#pref_ar #BuildForm_ar .buttons button:hover,
+#pref_ar #BuildForm_ar .buttons button.active {
+  background-color: #f4f3f3;
+  border-radius: 8px;
+}
+#pref_ar #BuildForm_ar .buttons button:hover .required_icon,
+#pref_ar #BuildForm_ar .buttons button.active .required_icon {
+  color: #2a4480;
+}
+#pref_ar #BuildForm_ar [class*="build-input"],
+#pref_ar #BuildForm_ar .build-menu > .d-flex {
+  flex-direction: row;
+}
+#pref_ar #BuildForm_ar .build-menu .border-bottom {
+  padding: 0;
+}
+#pref_ar #BuildForm_ar .build-menu .p-3 .w-75 {
+  width: 75%;
+  max-width: 100%;
+}
+#pref_ar #BuildForm_ar .build-menu input.border.p-2.rounded,
+#pref_ar #BuildForm_ar .build-menu .form-control.border.rounded {
+  border: 1px solid #dee2e6 !important;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  text-align: right;
+}
+#pref_ar #BuildForm_ar .build-menu .js-add-option {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  text-decoration: none;
+  direction: ltr;
+  text-align: left;
+}
+#pref_ar #BuildForm_ar .build-menu .js-add-option:hover {
+  text-decoration: underline;
+}
+#pref_ar #BuildForm_ar .build-menu .js-form-options .input-group {
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 39px;
+}
+#pref_ar #BuildForm_ar .build-menu .js-form-options .input-group .form-control {
+  min-width: 0;
+  height: 39px;
+  min-height: 39px;
+  text-align: right;
+}
+#pref_ar #BuildForm_ar .build-menu .js-form-options .input-group-append {
+  flex-shrink: 0;
+  align-items: center;
+}
+#pref_ar #BuildForm_ar .build-menu .p-3 {
+  text-align: right;
+}
+#pref_ar select#selectFormType_ar,
+#pref_ar .form-control#selectFormType_ar {
+  text-align: right;
+  direction: rtl;
+}
+
+/* Form builder remove option trash icon (this page only) */
+#BuildForm .js-remove-option i.fas,
+#BuildForm_ar .js-remove-option i.fas {
+  color: rgb(145, 145, 145);
+  opacity: 0.75;
+}
